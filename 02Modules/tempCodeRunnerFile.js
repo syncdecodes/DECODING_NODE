@@ -1,5 +1,3 @@
-)
-
 fx.sayHi("Dev")
 fx.sayHi(names.john)
 fx.sayHi(names.peter)
