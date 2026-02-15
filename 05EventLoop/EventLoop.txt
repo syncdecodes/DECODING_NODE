@@ -1,0 +1,34 @@
+The event loop is what allows Node.js 
+to perform non-blocking I/O operations — despite the fact that a single JavaScript thread is used by default — by offloading operations to the system kernel whenever possible.
+
+Node offloads tasks like:
+(fs.readFile), (setTimeout, setInterval), Network requests, Crypto operations
+
+Js is a single threaded, non-blocking, asynchronous, concurrent language (google this to understand)
+
+To understand the event loop, we must understand 5 things:
+
+Call Stack
+Async APIs (Browser / Node APIs)
+Callback Queue
+Microtask Queue
+Event Loop
+
+1. call stack - 'Each line' of code enters the call stack, runs, and exits before the next line runs.
+2. async operations - asynchronous code is offloaded and Once the async operation finishes, its callback is placed in the callback queue.
+3. callback queue (macrotask queue) - callbacks are placed in the callback queue setTimeout, setInterval, I/O callbacks..
+3.1. Microtask Queue (higher priority) - Some async tasks go to a special, higher-priority queue: Promise.then(), catch, finally..
+     Microtasks always run before callback queue tasks.
+4. Event Loop (the coordinator) - The event loop constantly checks: Is the call stack empty? If yes → run all microtasksThen → run one callback queue task, Repeat forever.
+
+When JavaScript encounters synchronous code it is simply moved to call stack - executes - gets out from class stack.
+But when JavaScript encounters asynchronous code, it is offloaded.
+Once the async operation finishes, its callback is placed in the callback queue.
+The event loop continuously checks whether the call stack is empty.
+If the call stack is empty, the event loop moves a task from the callback queue to the call stack, where it executes.
+After execution, the call stack becomes empty again.
+This process repeats for all remaining tasks.
+The event loop never stops while the program is running.
+
+Note - The async operations are started(offloaded) immediately, but their callbacks are invoked only after the synchronous code has finished executing.
+Note2 - The 'async API call goes to the call stack'; the async callback waits and runs later via the event loop.
