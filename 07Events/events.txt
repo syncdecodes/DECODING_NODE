@@ -1,0 +1,18 @@
+.on(eventName, listener)
+.emit(eventName, data)
+
+Eevnts in Node js - Something happens → an event is emitted → a function runs in response
+Node does not constantly check things.
+It waits for events and reacts when they occur.
+
+emit: “Announce that an event has happened.”
+When an event is emitted, Node.js:
+Looks for all listeners registered for that event and calls them one by one.
+Thus emit triggers an event and executes all its registered listeners.
+
+emitter.on('eventName', callback); // listen
+emitter.emit('eventName');         // trigger
+.on() → “When this happens, run this”
+.emit() → “This just happened”
+
+Note: many built in modules like 'http' implement events internally
