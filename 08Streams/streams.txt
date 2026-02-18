@@ -1,0 +1,35 @@
+1. streams are used to read or write sequentially (in chunks)
+   Instead of reading/writing everything at once, Node:
+   opens the file
+   read/writes small pieces of data
+   closes the file when done
+
+2. Different types of stream -:
+   writeable - write data sequentially
+   readable - read data sequentially
+   duplex - read and write data sequentially
+   transform - data can be modified when writing ro reading
+
+Note: Just like events, many built in modules implement streams internally
+      streams extend EventEmitter class which means we can use events like `data`, `end` and 'error' on streams  
+
+3. By default, Node.js reads files in chunks of 64 KB (65536 bytes).(1kb = 1024 bytes)
+   If the file size is not an exact multiple of the chunk size, the last chunk (buffer) contains the remaining bytes.
+
+4. highWaterMark:
+   Controls the size of each chunk (in bytes)
+   Example: highWaterMark: 90000 reads ~90 KB per chunk
+   
+5. encoding:
+   If not set, chunks are Buffers (binary data)
+   If set to 'utf8', chunks are strings (readable text)
+
+   eg -:
+   file.createReadStream(path, {highWaterMark: 90000, encoding: 'utf8'})
+   
+6. The stream.pipe() method in Node.js attaches a readable stream to a writable stream, enabling the seamless flow of data from source to destination without manual event handling
+   .pipe() is equivalent to:
+   stream.on('data', chunk => res.write(chunk));
+   stream.on('end', () => res.end());
+
+// Instance of fs.ReadStream are created and returned using the fs.createReadStream() function
