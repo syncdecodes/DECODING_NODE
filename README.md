@@ -1,4 +1,4 @@
-# DECODING NODE.JS 🚀
+# DECODING NODE.JS ⚡
 
 Welcome! This repository contains all the Node.js code and projects I’ve built while learning backend development.
 It includes experiments, practice apps, notes, and hands-on exercises created throughout my Node.js journey.
