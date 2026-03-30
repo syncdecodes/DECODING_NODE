@@ -1,4 +1,4 @@
-# DECODING NODE.JS ⚡
+# NODE.JS ⚡
 
 Welcome! This repository contains all the Node.js code and projects I’ve built while learning backend development.
 It includes experiments, practice apps, notes, and hands-on exercises created throughout my Node.js journey.
@@ -54,4 +54,4 @@ but feedback, suggestions, best practices, or learning resources are always welc
 
 DEV
 
-Created by [syncdecodes](https://github.com/syncdecodes)
+Created by [imdevvx](https://github.com/imdevvx)
